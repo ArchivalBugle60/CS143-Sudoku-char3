@@ -159,11 +159,21 @@ public class SudokuBoard {
       for (int row = 0; row < board.length; row++) {
          for (int col = 0; col < board[row].length; col++) {
             if (board[row][col] == '-') {
-               for(char 
+               for(char n = '1'; n <= '9'; n++) {
+                  board[row][col] = n;
+                  //like in wordmaker
+                  if (isValid() && solve()) {
+                     return true;
+                  }
+                  board[row][col] = '-';
+               }
             
+            return false;
             }
+   
          }
       }
+      return false;
     
     }
 

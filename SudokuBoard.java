@@ -1,5 +1,5 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class SudokuBoard {
     private char[][] board;
@@ -148,14 +148,17 @@ public class SudokuBoard {
     }
     
     public boolean solve() {
+        // checks if board isnt valid
       if(!isValid()) {
          return false;
       }
       
+        // checks if solved 
       if(isSolved()) {
          return true;
       }
       
+    //   nested for loops checks every cell and if empty and uses 1-9 and if with that number is valid and solve puts in taht cell
       for (int row = 0; row < board.length; row++) {
          for (int col = 0; col < board[row].length; col++) {
             if (board[row][col] == '-') {
